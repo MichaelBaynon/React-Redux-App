@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import PlayerCount from './components/playerCount'
 import PlayerCountList from './components/playerCountList'
+import {connect} from 'react-redux'
 
 
 
@@ -9,7 +10,7 @@ import PlayerCountList from './components/playerCountList'
 
 // const store = createStore(reducer)
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <div className='nav'>
@@ -19,7 +20,9 @@ function App() {
         <a  className='login' href='https://www.battlefield.com/games/battlefield-4'>Login</a>
       <a  href='https://www.battlefield.com/games/battlefield-4'>Sign Up</a>
       </div>
-      
+      <div>
+     
+      </div>
       </div>
       <PlayerCount />
       <PlayerCountList />
@@ -28,4 +31,12 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    playerCount: state.playerCount,
+    error: state.error,
+    loading: state.loading
+  }
+}
+
+export default connect(mapStateToProps, null)(App);

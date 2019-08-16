@@ -4,7 +4,7 @@ import Loader from 'react-loader-spinner';
 
 import { getData } from '../actions';
 
-import playerCounts from './playerCount'
+import PlayerCount from './playerCount'
 
 const PlayerCountList = props => {
   return (
@@ -17,8 +17,8 @@ const PlayerCountList = props => {
           'Get Player Count Data'
         )}
       </button>
-      {props.playerCounts &&
-        props.playerCounts.map(data => <playerCounts key={data} playerCount={data} />)}
+      {props.playerCount &&
+        props.playerCount.map(data => <PlayerCount key={data} playerCount={data} />)}
     </>
   );
 };
